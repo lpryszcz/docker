@@ -1,9 +1,11 @@
 # Docker builds
 
-## 
+## alpine-bash
+Trying to build minimal image for [Redundans](https://github.com/lpryszcz/redundans).
+But cannot build even biopython / numpy. 
 
 ## redundans
-
+Image for [Redundans](https://github.com/lpryszcz/redundans).
 
 ```bash
 cd redundans
