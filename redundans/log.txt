@@ -1,7 +1,0 @@
-
-docker build -t lpryszcz/redundans:v0.111b .
-
-
-# alias
-docker tag lpryszcz/redundans:v0.111b lpryszcz/redundans:latest
-
