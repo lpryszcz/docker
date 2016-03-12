@@ -31,7 +31,7 @@ Ubuntu-based (~150Mb) image for [Redundans](https://github.com/lpryszcz/redundan
 
 ```bash
 cd redundans
-docker build --pull --force-rm -t lpryszcz/redundans:v0.11c .
+docker build --pull --force-rm --no-cache -t lpryszcz/redundans:v0.12 .
 
 # alias
 docker tag -f lpryszcz/redundans:v0.11c lpryszcz/redundans:latest
