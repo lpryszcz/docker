@@ -30,6 +30,7 @@ docker build -t lpryszcz/redundans:alpine .
 Ubuntu-based (~150Mb) image for [Redundans](https://github.com/lpryszcz/redundans).
 
 ```bash
+# build latest last-align instead of apt-get!
 cd redundans
 docker build --pull --no-cache -t lpryszcz/redundans:v0.12 .
 
