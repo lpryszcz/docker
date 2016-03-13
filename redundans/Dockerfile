@@ -11,8 +11,7 @@ RUN cd /bin && wget -q http://downloads.sourceforge.net/project/soapdenovo2/GapC
 
 # LAST in /root/srt
 RUN mkdir -p /root/src && cd /root/src && \
-wget -q http://last.cbrc.jp/last/index.cgi/archive/tip.tar.gz && tar xpfz tip.tar.gz && ln -s last-*/ last && cd last && make
-RUN ln -s /root/src/last/src/lastal /root/src/last/src/lastaldb /bin
+wget -q http://last.cbrc.jp/last/index.cgi/archive/tip.tar.gz && tar xpfz tip.tar.gz && ln -s last-*/ last && cd last && make && make install
 
 # SSPACE && redundans in /root/srt
 RUN cd /root/src && wget -q http://www.baseclear.com/base/download/41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && tar xpfz 41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && ln -s SSPACE-STANDARD-3.0_linux-x86_64 SSPACE && wget -O- -q http://cpansearch.perl.org/src/GBARR/perl5.005_03/lib/getopts.pl > SSPACE/dotlib/getopts.pl && \
