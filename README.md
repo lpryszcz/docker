@@ -16,7 +16,7 @@ docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.12b_alpine .
 docker run -it -w /root/src/redundans lpryszcz/redundans:v0.12b_alpine ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
 
 # push
-docker push lpryszcz/redundans:v0.12b && docker push lpryszcz/redundans:latest
+docker push lpryszcz/redundans:v0.12b_alpine #&& docker push lpryszcz/redundans:latest
 
 ```
 

@@ -16,5 +16,5 @@ cd /root/src && rm -r last* bwa* GapCloser* v*
 RUN cd /root/src && wget -q http://www.baseclear.com/base/download/41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && tar xpfz 41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && ln -s SSPACE-STANDARD-3.0_linux-x86_64 SSPACE && wget -O- -q http://cpansearch.perl.org/src/GBARR/perl5.005_03/lib/getopts.pl > SSPACE/dotlib/getopts.pl && \
 wget --no-check-certificate -q -O redundans.tgz https://github.com/lpryszcz/redundans/archive/master.tar.gz && tar xpfz redundans.tgz && mv redundans-master redundans && ln -s /root/src/redundans /redundans && rm *gz
 
-RUN apk del wget build-base zlib-dev && apk add libstdc++
-RUN apk cache clean
+RUN apk del wget build-base zlib-dev 
+RUN apk add libstdc++
