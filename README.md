@@ -5,24 +5,19 @@ Trying to build minimal image for [Redundans](https://github.com/lpryszcz/redund
 But cannot build biopython. 
 
 ```bash
+# build latests
 cd redundans_alpine
-docker build -t lpryszcz/redundans:alpine .
+docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.12b_alpine .
 
-# 9M with bash & wget
-# 45M with python, sqlite & 55Mb with py-pi
-# 47M with py-sqlite
-## 198Mb with numpy!
+# alias
+#docker tag -f lpryszcz/redundans:v0.12b_alpine lpryszcz/redundans:latest
 
-# 80Mb with redundans & 120 with perl
+# test
+docker run -it -w /root/src/redundans lpryszcz/redundans:v0.12b_alpine ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
 
+# push
+docker push lpryszcz/redundans:v0.12b && docker push lpryszcz/redundans:latest
 
-## abandon numpy 145M and biopython (not installeable): easy
-## and SSPACE 11M (& perl 40M): more difficult
-# ia32 32-bit libs needed by:
-## BLAT & GapCloser
-
-# biopython
-## limits.h: No such file or directory
 ```
 
 
