@@ -32,15 +32,15 @@ Ubuntu-based (~150Mb) image for [Redundans](https://github.com/lpryszcz/redundan
 ```bash
 # build latest
 cd redundans
-docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.12 .
+docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.12b .
 
 # alias
-docker tag -f lpryszcz/redundans:v0.12 lpryszcz/redundans:latest
+docker tag -f lpryszcz/redundans:v0.12b lpryszcz/redundans:latest
 
 # test
 docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
 
 # push
-docker push lpryszcz/redundans:v0.12 && docker push lpryszcz/redundans:latest
+docker push lpryszcz/redundans:v0.12b && docker push lpryszcz/redundans:latest
 
 ```

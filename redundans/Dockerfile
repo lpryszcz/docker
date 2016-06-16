@@ -3,7 +3,7 @@ FROM ubuntu:xenial
 MAINTAINER lpryszcz <l.p.pryszcz@gmail.com>
 
 # install packages && clean-up # mummer
-RUN apt-get update && apt-get install -y wget perl python-biopython python-numpy bwa last-align && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y wget perl python bwa last-align && rm -rf /var/lib/apt/lists/*
 
 # GapCloser in /bin
 RUN cd /bin && wget -q http://downloads.sourceforge.net/project/soapdenovo2/GapCloser/bin/r6/GapCloser-bin-v1.12-r6.tgz && tar xpfz GapCloser-bin-v1.12-r6.tgz GapCloser && chmod +x GapCloser
