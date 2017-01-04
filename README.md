@@ -38,4 +38,7 @@ docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i te
 # push
 docker push lpryszcz/redundans:v0.12b && docker push lpryszcz/redundans:latest
 
+# microbadger update - maintained through webhooks https://hub.docker.com/r/lpryszcz/redundans/~/settings/webhooks/
+#curl --data "info=update" https://hooks.microbadger.com/images/lpryszcz/redundans/X0g8hB_GwLqt2094hbnYfwDOYks=
+
 ```
