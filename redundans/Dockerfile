@@ -1,14 +1,18 @@
-FROM ubuntu:xenial
+FROM ubuntu:16.04
 
-MAINTAINER lpryszcz <l.p.pryszcz@gmail.com>
+MAINTAINER lpryszcz <l.p.pryszcz+docker@gmail.com>
 
-# install packages && clean-up # mummer
-RUN apt-get update && apt-get install -y wget perl python bwa last-align && rm -rf /var/lib/apt/lists/*
+# install packages
+RUN apt update && apt install -y perl python python-pip git make g++ zlib1g-dev && pip install matplotlib
 
-# GapCloser in /bin
-RUN cd /bin && wget -q http://downloads.sourceforge.net/project/soapdenovo2/GapCloser/bin/r6/GapCloser-bin-v1.12-r6.tgz && tar xpfz GapCloser-bin-v1.12-r6.tgz GapCloser && chmod +x GapCloser
-
-# SSPACE && redundans in /root/srt
+# redundans in /root/srt
 RUN mkdir -p /root/src && cd /root/src && \
-cd /root/src && wget -q http://www.baseclear.com/base/download/41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && tar xpfz 41SSPACE-STANDARD-3.0_linux-x86_64.tar.gz && ln -s SSPACE-STANDARD-3.0_linux-x86_64 SSPACE && wget -O- -q http://cpansearch.perl.org/src/GBARR/perl5.005_03/lib/getopts.pl > SSPACE/dotlib/getopts.pl && \
-wget -q -O redundans.tgz https://github.com/lpryszcz/redundans/archive/master.tar.gz && tar xpfz redundans.tgz && mv redundans-master redundans && ln -s /root/src/redundans /redundans && rm *gz
+git clone --recursive https://github.com/lpryszcz/redundans.git && cd redundans && \
+(cd bin/bwa && make clean && make) && (cd bin/last && make clean && make) && (cd bin/snap && make clean && make)
+
+# clean-up
+RUN apt purge -y git make g++ zlib1g-dev python-pip && apt autoremove -y && apt autoclean -y && rm -rf /var/lib/apt/lists/*
+
+# test & rm
+RUN cd /root/src/redundans && ./redundans.py -v -i test/*.fq.gz -f test/contigs.fa -o test/run1 && \
+find . -name .git | xargs rm -r test/run1

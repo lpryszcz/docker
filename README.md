@@ -27,16 +27,16 @@ Ubuntu-based (~150Mb) image for [Redundans](https://github.com/lpryszcz/redundan
 ```bash
 # build latest
 cd redundans
-docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.12b .
+docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.13a .
 
 # alias
-docker tag -f lpryszcz/redundans:v0.12b lpryszcz/redundans:latest
+docker tag -f lpryszcz/redundans:v0.13a lpryszcz/redundans:latest
 
-# test
-docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
+# test (already in build)
+# docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
 
 # push
-docker push lpryszcz/redundans:v0.12b && docker push lpryszcz/redundans:latest
+docker push lpryszcz/redundans:v0.13a && docker push lpryszcz/redundans:latest
 
 # microbadger update - maintained through webhooks https://hub.docker.com/r/lpryszcz/redundans/~/settings/webhooks/
 #curl --data "info=update" https://hooks.microbadger.com/images/lpryszcz/redundans/X0g8hB_GwLqt2094hbnYfwDOYks=
