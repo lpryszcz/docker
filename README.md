@@ -30,7 +30,7 @@ cd redundans
 docker build --pull --no-cache --force-rm -t lpryszcz/redundans:v0.13a .
 
 # alias
-docker tag -f lpryszcz/redundans:v0.13a lpryszcz/redundans:latest
+docker tag lpryszcz/redundans:v0.13a lpryszcz/redundans:latest
 
 # test (already in build)
 # docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
