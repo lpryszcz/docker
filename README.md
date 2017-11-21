@@ -25,7 +25,7 @@ docker push lpryszcz/redundans:v0.12b_alpine #&& docker push lpryszcz/redundans:
 Ubuntu-based (~150Mb) image for [Redundans](https://github.com/lpryszcz/redundans).
 
 ```bash
-version=v0.13c
+version=v0.14a
 # build latest
 cd redundans
 docker build --pull --no-cache --force-rm -t lpryszcz/redundans:$version .
@@ -35,6 +35,7 @@ docker tag lpryszcz/redundans:$version lpryszcz/redundans:latest
 
 # test (already in build)
 # docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -f test/contigs.fa -o test/run1
+# docker run -it -w /root/src/redundans lpryszcz/redundans ./redundans.py -v -i test/{600,5000}_{1,2}.fq.gz -o test/run.denovo
 
 # push
 docker push lpryszcz/redundans:$version && docker push lpryszcz/redundans:latest
